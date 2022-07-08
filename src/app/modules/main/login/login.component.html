@@ -1,0 +1,53 @@
+<div class="mainDiv d-flex align-items-center">
+  <div class="panels row mx-auto">
+    <div class="left-panel col-lg-6">
+      <div class="container">
+        <i class="fa-solid fa-palette fa-3x"></i>
+        <p class="formHeading">Login</p>
+          <div class="formDiv">
+            <form [formGroup]='loginForm' (submit)="loginUser()">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="userDetails" 
+                       placeholder="userDetails" formControlName ='userId'>
+                <label for="userDetails">
+                  <span *ngIf="loginForm.get('userId').hasError('required') && 
+                               loginForm.get('userId').touched 
+                              else showUserMessage" class="errorMessage">
+                  UserName/Email is required<sup>*</sup></span>
+                  <span *ngIf="loginForm.get('userId').hasError('pattern') && 
+                               loginForm.get('userId').dirty" class="errorMessage">
+                  Invalid Username</span>
+                  <ng-template #showUserMessage>UserName/Email<sup>*</sup></ng-template>
+                </label>
+              </div>
+              <div class="form-floating">
+                <input type="password" [type]="hide ? 'password' : 'text'" class="form-control" 
+                       id="userPassword" placeholder="userPassword" formControlName ='userPassword'>
+                  <label for="userPassword">
+                    <span *ngIf="loginForm.get('userPassword').hasError('required') && 
+                                 loginForm.get('userPassword').touched else showMessage" 
+                                 class="errorMessage">
+                    Password is required<sup>*</sup></span>
+                    <ng-template #showMessage>Password<sup>*</sup></ng-template>
+                  </label>
+                  <mat-icon class="toggleButton" (click)="togglePassword()">
+                    {{hide ? 'visibility_off' : 'visibility'}}
+                  </mat-icon>
+              </div>
+              <button type="submit" class="btn loginSignupBtn" [disabled]="!loginForm.valid">Login</button>
+            </form>
+            <div class="link">
+              <a class="switchPages" [routerLink]="['/signup']">
+                Don't have an account? Create one now
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column gap-3 justify-content-center align-items-center 
+                right-panel col-lg-6 panelDetail">
+      <h1>User Login</h1>
+      <p>Please enter your email and password.</p>
+    </div>
+  </div>
+</div>

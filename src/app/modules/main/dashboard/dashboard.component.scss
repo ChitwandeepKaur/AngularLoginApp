@@ -1,0 +1,48 @@
+.displayUser {
+  width        : 65%;
+}
+
+.displayUser { 
+  font-size    : 1.5rem;
+}
+
+img {
+  border       : 2px solid white;
+  border-radius: 50%;
+  height       : 15%;
+  width        : 15%;
+}
+
+.mainDiv, .welcomePage , nav , .profilePicDiv {
+  background   : rgb(214,218,255);
+  background   : linear-gradient(90deg, rgba(214,218,255,1) 0%, rgba(255,193,231,1) 100%);
+}
+
+.profilePicDiv, .welcomePage{
+  width        : 100%; 
+}
+
+.row {
+  padding      : 2%;
+  border-bottom: 2px solid rgba(255,193,231,1);
+}
+
+.welcomePage {
+  color        : #5f419f;
+  font-size    : 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .displayUser {
+    font-size  : 1.25rem;
+    width      : 80%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .displayUser {
+    font-size  : 1.15rem;
+    width      : 90%;
+  }
+
+}

@@ -1,0 +1,104 @@
+@import url('https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.min.css');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+@import     '~ngx-toastr/toastr.css';
+
+html, body {
+  height           : 100%;
+  scroll-behavior  : smooth;
+}
+body {
+  margin           : 0;
+  font-family      : Roboto, "Helvetica Neue", sans-serif;
+}
+
+//--------------@angular/cdk custom styling---------------//
+.cdk-overlay-container {
+  z-index          : 500 !important;
+}
+//--------------@angular/cdk custom styling---------------//
+
+//--------------Custom Styles added by me ----------------//
+* {
+  font-family     : 'Heebo', sans-serif;
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  border          : 1px solid #999999;
+  color           : #666666;
+}
+
+.errorMessage {
+  color           : rgb(255, 58, 58);
+}
+
+i {
+  color           : #5f419f;
+  margin-top      : 8%;
+}
+
+label {
+  color           : grey;
+}
+
+.loginSignupBtn {
+  background-color: #5f419f;
+  color           : white;
+  margin-top      : 7%;
+}
+
+.navbarItem { 
+  color           : white;
+  background-color: #5f419f;
+  border          : 0;
+}
+
+.navbarItem:hover {
+  background-color: #8a62df;
+  color           : white;
+}
+
+.panels {
+  background-color: white;
+  height          : 90vh;
+  width           : 80vw;
+}
+
+.panelDetail h1 {
+  font-size       : 2.75rem;
+  font-weight     : 500;
+}
+
+.panelDetail p {
+  font-size       : 1.4rem;
+  font-weight     : 300;
+  line-height     : 2rem;
+  text-align      : center;
+}
+
+.panelDetail span {
+  color           : black;
+}
+
+.panelDetail span a {
+  color           : white;
+}
+
+sup {
+  color           : rgb(255, 78, 78);
+  font-weight     : bolder;
+}
+
+.switchPages {
+  font-family     : 'Heebo', sans-serif;
+  font-size       : 200;
+}
+
+.toggleButton {
+  color           : rgb(68, 66, 66);
+  cursor          : pointer;
+  position        : absolute;
+  bottom          : 30%;
+  left            : 86%;
+}

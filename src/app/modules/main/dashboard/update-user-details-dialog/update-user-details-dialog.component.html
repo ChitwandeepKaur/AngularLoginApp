@@ -1,0 +1,117 @@
+<app-change-password></app-change-password>
+<button type="button" class="btn changeBtn navbarItem mx-2"  style="border: 0;" data-bs-toggle="modal" data-bs-target="#updateDetails">
+  Update Profile Details
+</button>
+
+<div class="modal fade" id="updateDetails" tabindex="-1" aria-labelledby="updateDetailsLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateDetailsLabel">Edit User Info</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="updateDetailsForm">
+          <div class="form-floating form-element">
+            <input type="text" class="form-control" id="firstName" placeholder="firstName" 
+                   formControlName ='firstName'>
+              <label for="firstName">
+                <span *ngIf="updateDetailsForm.get('firstName').hasError('required') && 
+                             updateDetailsForm.get('firstName').touched 
+                             else showFirstNameMessage" class="errorMessage">
+                First Name is required<sup>*</sup>
+                </span>
+                <span *ngIf="updateDetailsForm.get('firstName').hasError('pattern') && 
+                             updateDetailsForm.get('firstName').dirty" class="errorMessage">
+                Invalid First Name
+                </span>
+                <ng-template #showFirstNameMessage>First Name<sup>*</sup></ng-template>
+              </label>
+          </div>
+          <div class="form-floating form-element">
+            <input type="text" class="form-control" id="lastName" placeholder="lastName" 
+                   formControlName ='lastName'>
+              <label for="lastName">
+                <span *ngIf="updateDetailsForm.get('lastName').hasError('required') && 
+                             updateDetailsForm.get('lastName').touched 
+                             else showLastNameMessage" class="errorMessage">
+                Last Name is required<sup>*</sup>
+                </span>
+                <span *ngIf="updateDetailsForm.get('lastName').hasError('pattern') && 
+                             updateDetailsForm.get('lastName').dirty" class="errorMessage">
+                Invalid Last Name
+                </span>
+                <ng-template #showLastNameMessage>Last Name<sup>*</sup></ng-template>
+              </label>
+          </div>
+          <div class="form-floating form-element">
+            <input type="text" class="form-control" id="userEmail" placeholder="userEmail" 
+                   formControlName ='userEmail'>
+              <label for="userEmail">
+                <span *ngIf="updateDetailsForm.get('userEmail').hasError('required') && 
+                             updateDetailsForm.get('userEmail').touched 
+                             else showPassword" class="errorMessage">
+                Email Address is required<sup>*</sup>
+                </span>
+                <span *ngIf="updateDetailsForm.get('userEmail').hasError('email') && 
+                             updateDetailsForm.get('userEmail').dirty" class="errorMessage">
+                Invalid Email Address
+                </span>
+                <ng-template #showPassword>Email Address<sup>*</sup></ng-template>
+              </label>
+          </div>
+          <div class="form-floating form-element">
+            <input type="number" class="form-control" id="contactNumber" placeholder="contactNumber" formControlName ='contactNumber'>
+              <label for="contactNumber">
+                <span *ngIf="updateDetailsForm.get('contactNumber').hasError('required') && 
+                             updateDetailsForm.get('contactNumber').touched 
+                             else showContactMessage" class="errorMessage">
+                Contact Number is required<sup>*</sup>
+                </span>
+                <ng-template #showContactMessage>Contact Number<sup>*</sup></ng-template>
+              </label>
+          </div>
+          <div class="form-floating form-element">
+            <input type="number" class="form-control" id="userAge" placeholder="userAge" 
+                   formControlName ='userAge'>
+              <label for="userAge">Age</label>
+          </div>
+          <div class="form-element">
+            <label for="gender" class="mx-2">Gender</label>
+            <input type="radio" name="gender" class="form-check-input" formControlName ='gender' value="Male">Male
+            <input type="radio" name="gender" class="form-check-input" formControlName ='gender' value="Female">Female
+          </div>
+          <div class="form-floating form-element">
+            <textarea class="form-control" id="address" placeholder="User Address" 
+                      formControlName ='address'></textarea>
+            <label for="address">Address</label>
+          </div>
+          <div class="form-floating form-element">
+            <input type="number" class="form-control" id="postalCode" placeholder="postalCode" 
+                   formControlName ='postalCode'>
+            <label for="postalCode">Postal Code</label>
+          </div>
+          <div class="form-element">
+            <label for="maritalStatus" class="mx-2">Marital Status</label>
+            <select name="maritalStatus" id="maritalStatus" (change)="updateMaritalStatus($event)">
+              <option> -- select an option -- </option>
+              <option value="Married">Married</option>
+              <option value="Single">Single</option>
+              <option value="It's Complicated">It's complicated</option>
+            </select>
+          </div>
+          <div class="form-element">
+            <input type="file" name="profilePic" id="profilePic" 
+                   accept="image/png, image/jpeg, image/jpg" (change)="uploadImage($event)">
+            <label for="profilePic">Upload your profile picture</label>
+            <p>File Shouldn't exceed more than 3 mb</p>
+            <span *ngIf="this.utilService.uploadingStatus" class="text-success">Uploaded</span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary updateBtn" (click)="updateForm()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>

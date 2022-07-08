@@ -1,0 +1,123 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <app-update-user-details-dialog></app-update-user-details-dialog>
+        <button class="btn  navbarItem mx-2" (click)="logoutUser()">Logout</button>
+        <button type="button" class="btn navbarItem" data-bs-toggle="modal" 
+                data-bs-target="#staticBackdrop">
+          Instructions for Form Fields
+        </button>
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" 
+             data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" 
+             aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title" id="staticBackdropLabel">
+                  Instructions for Form Fields
+                </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <span>First Name - 
+                  <ul>
+                    <li>Can start with a capital letter</li>
+                    <li>Can have one or more words</li>
+                    <li>Atleast two letters long</li>
+                  </ul>
+                </span>
+                <span>Last Name - 
+                  <ul>
+                    <li>Only Alphabets</li>
+                    <li>Cannot have more than one word</li>
+                  </ul>
+                </span>
+                <span>User Id - 
+                  <ul>
+                    <li>Can start with a capital letter</li>
+                    <li>Cannot have any whitespaces</li>
+                    <li>Atleast 5 letters long</li>
+                  </ul>
+                </span>
+                <span>Password - 
+                  <ul>
+                    <li>6 to 16 valid characters</li>
+                    <li>Atleast one number</li>
+                    <li>Atleast one special charracter</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="d-flex flex-column align-items-center pt-2 mainDiv">
+  <div class="welcomePage text-center">
+    <p>Welcome {{userData.userId}}!</p>
+  </div>
+    <div class="profilePicDiv text-center">
+      <img [src]="this.mainService.userInfo.profilePic">
+    </div>
+    <div class="displayUser mt-4 container bg-light bg-gradient">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">First Name </div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.firstName}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">Last Name</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.lastName}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">Contact Number</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.contactNumber}}</div>
+      </div>
+
+        <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">User Id</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.userId}}</div>
+      </div>
+
+        <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">User Email</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.userEmail}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">Age</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.userAge}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">Gender</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.gender}}</div>
+      </div>
+      
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">Address</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.address}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">Postal Code</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.postalCode}}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-4">Marital Status</div>
+        <div class="col-lg-6 col-md-6 col-sm-8">{{userData.maritalStatus}}</div>
+      </div> 
+    </div>
+</div>

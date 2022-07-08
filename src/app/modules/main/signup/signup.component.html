@@ -1,0 +1,123 @@
+<div class="mainDiv d-flex align-items-center"> 
+  <div class="panels row mx-auto">
+    <div class="left-panel p-5 panelDetail col-lg-6 d-flex align-items-center gap-3 flex-column justify-content-center">
+      <h1>Sign up</h1>
+            <p> Signup using your details and login to the app for free</p>
+            <span>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Instructions for Form Fields
+      </a>
+
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="staticBackdropLabel">Instructions for Form Fields</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <span>First Name - 
+                <ul>
+                  <li>Can start with a capital letter</li>
+                  <li>Can have one or more words</li>
+                  <li>Atleast two letters long</li>
+                </ul>
+              </span>
+              <span>Last Name - 
+                <ul>
+                  <li>Only Alphabets</li>
+                  <li>Cannot have more than one word</li>
+                </ul>
+              </span>
+              <span>User Id - 
+                <ul>
+                  <li>Can start with a capital letter</li>
+                  <li>Cannot have any whitespaces</li>
+                  <li>Atleast 5 letters long</li>
+                  <li>Can only have alphabets and numbers</li>
+                </ul>
+              </span>
+              <span>Password - 
+                <ul>
+                  <li>6 to 16 valid characters</li>
+                  <li>Atleast one number</li>
+                  <li>Atleast one special charracter</li>
+                </ul>
+              </span>
+            </div>
+          </div>
+        </div>
+        </div>
+        </span>
+     </div>
+    <div class="right-panel col-lg-6">
+      <div class="container">
+        <i class="fa-solid fa-palette fa-3x"></i>
+        <p class="formHeading">Signup</p>
+        <form [formGroup]='signUpForm' (submit)="signUpUser()">
+          <div class="d-flex">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="firstName" placeholder="firstName" formControlName ='firstName'>
+              <label for="firstName">
+                <span *ngIf="signUpForm.get('firstName').hasError('required') && signUpForm.get('firstName').touched else showFirstNameMessage" class="errorMessage">First Name is required<sup>*</sup></span>
+                <span *ngIf="signUpForm.get('firstName').hasError('pattern') && signUpForm.get('firstName').dirty" class="errorMessage">Invalid First Name</span>
+                <ng-template #showFirstNameMessage>First Name<sup>*</sup></ng-template></label>
+            </div>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="lastName" placeholder="lastName" formControlName ='lastName'>
+              <label for="lastName">
+                <span *ngIf="signUpForm.get('lastName').hasError('required') && signUpForm.get('lastName').touched else showLastNameMessage" class="errorMessage">Last Name is required<sup>*</sup></span>
+                <span *ngIf="signUpForm.get('lastName').hasError('pattern') && signUpForm.get('lastName').dirty" class="errorMessage">Invalid Last Name</span>
+                <ng-template #showLastNameMessage>Last Name<sup>*</sup></ng-template></label>
+            </div>
+        </div>
+        <div>
+          <div class="form-floating fullWidth">
+            <input type="number" class="form-control" id="contactNumber" placeholder="contactNumber" formControlName ='contactNumber'>
+            <label for="contactNumber">
+              <span *ngIf="signUpForm.get('contactNumber').hasError('required') && signUpForm.get('contactNumber').touched else showContactMessage" class="errorMessage">Contact Number is required<sup>*</sup></span>
+              <ng-template #showContactMessage>Contact Number<sup>*</sup></ng-template></label>
+          </div>
+          <div class="form-floating fullWidth">
+            <input type="text" class="form-control" id="userId" placeholder="userId" formControlName ='userId'>
+            <label for="userId">
+              <span *ngIf="signUpForm.get('userId').hasError('required') && signUpForm.get('userId').touched else showUserIdMessage" class="errorMessage">User Id is required<sup>*</sup></span>
+              <span *ngIf="signUpForm.get('userId').hasError('pattern') && signUpForm.get('userId').dirty" class="errorMessage">Invalid User Id</span>
+              <ng-template #showUserIdMessage>User Id<sup>*</sup></ng-template></label>
+          </div>
+          <div class="form-floating fullWidth">
+            <input type="email" class="form-control" id="userEmail" placeholder="userEmail" formControlName ='userEmail'>
+            <label for="userEmail">
+              <span *ngIf="signUpForm.get('userEmail').hasError('required') && signUpForm.get('userEmail').touched else showUserEmailMessage" class="errorMessage">Email Address is required<sup>*</sup></span>
+              <span *ngIf="signUpForm.get('userEmail').hasError('email') && signUpForm.get('userEmail').dirty" class="errorMessage">Invalid Email Address</span>
+              <ng-template #showUserEmailMessage>Email Address<sup>*</sup></ng-template></label>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="form-floating">
+            <input type="password" [type]="hidePassword ? 'password' : 'text'" class="form-control" id="userPassword" placeholder="userPassword" formControlName ='userPassword'>
+            <mat-icon class="toggleButton" (click)="togglePassword()">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <label for="userPassword">
+              <span *ngIf="signUpForm.get('userPassword').hasError('required') && signUpForm.get('userPassword').touched else showPasswordMessage" class="errorMessage">Password is required<sup>*</sup></span>
+              <span *ngIf="signUpForm.get('userPassword').hasError('pattern') && signUpForm.get('userPassword').dirty" class="errorMessage">Invalid Password</span>
+              <ng-template #showPasswordMessage>Password<sup>*</sup></ng-template></label>
+          </div>
+          <div class="form-floating">
+            <input type="password" [type]="hideConfirm ? 'password' : 'text'" class="form-control" id="confirmPassword" placeholder="confirmPassword" formControlName ='confirmPassword'>
+            <mat-icon class="toggleButton" (click)="toggleConfirm()">{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <label for="confirmPassword">
+              <span *ngIf="signUpForm.get('confirmPassword').hasError('required') && signUpForm.get('confirmPassword').touched" class="errorMessage">ConfirmPassword is required<sup>*</sup></span>
+              <span *ngIf="signUpForm.hasError('noMatch') && signUpForm.get('confirmPassword').dirty else showConfirmPasswordMessage" class="errorMessage">Passwords don't match</span>
+              <ng-template #showConfirmPasswordMessage>Confirm Password<sup>*</sup></ng-template></label>
+          </div>
+          
+        </div>
+        <button type="submit" class="btn loginSignupBtn" [disabled]="!signUpForm.valid">Signup</button>
+      </form>
+      <div class="link">
+        <a class="switchPages" [routerLink]="['/login']">Already have an account? Login here</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
