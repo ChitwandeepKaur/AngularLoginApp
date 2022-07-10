@@ -39,7 +39,7 @@ export class ChangePasswordComponent implements OnInit {
     })
   }
 
-  changePassword(){
+  changePassword(): void {
 
     if(md5(this.changePasswordForm.value.oldPassword) === this.mainService.userInfo.userPassword){
       this.mainService.userInfo.userPassword = md5(this.changePasswordForm.value.userPassword)
@@ -51,13 +51,16 @@ export class ChangePasswordComponent implements OnInit {
     else
       this.notificationService.error('Please Enter Your Old Password Correctly','Error')
   }
-  toggleConfirmPassword(){
+
+  toggleConfirmPassword(): void {
     this.hideConfirmPassword = !this.hideConfirmPassword
   }
-  toggleNewPassword(){
+
+  toggleNewPassword(): void {
     this.hideNewPassword     = !this.hideNewPassword
   }
-  togglePassword(){
+
+  togglePassword(): void {
     this.hideOldPassword     = !this.hideOldPassword
   }  
 }

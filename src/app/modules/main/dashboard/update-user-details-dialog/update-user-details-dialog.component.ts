@@ -50,16 +50,16 @@ export class UpdateUserDetailsDialogComponent implements OnInit {
     })
   }
 
-  updateMaritalStatus(event: any){
+  updateMaritalStatus(event: any): void {
     this.updateDetailsForm.value.maritalStatus = event.target.value
   }
 
-  uploadImage(event){
+  uploadImage(event): void{
     const newProfilePic = event.target.files[0]
     this.utilService.imageHandling(newProfilePic)
   }
   
-  updateForm(){
+  updateForm(): void {
     const oldEmail = this.mainService.userInfo.userEmail
     if(this.cookieService.getCookie() !== -1){
       if(oldEmail !== this.updateDetailsForm.value.userEmail && 

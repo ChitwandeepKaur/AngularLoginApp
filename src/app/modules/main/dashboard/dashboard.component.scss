@@ -4,6 +4,7 @@
 
 .displayUser { 
   font-size    : 1.5rem;
+  box-shadow   : 1px 2px 17px 3px rgba(0,0,0,0.75);
 }
 
 img {
@@ -20,6 +21,7 @@ img {
 
 .profilePicDiv, .welcomePage{
   width        : 100%; 
+  margin-bottom: 2%;
 }
 
 .row {
@@ -30,6 +32,7 @@ img {
 .welcomePage {
   color        : #5f419f;
   font-size    : 2rem;
+  margin-top   : 3%;
 }
 
 @media screen and (max-width: 1200px) {
@@ -43,6 +46,14 @@ img {
   .displayUser {
     font-size  : 1.15rem;
     width      : 90%;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  .logoutBtn, .instrucBtn {
+    margin-top : 1%;
+    width      : 25vw;
   }
 
 }

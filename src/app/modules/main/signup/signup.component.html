@@ -2,12 +2,11 @@
   <div class="panels row mx-auto">
     <div class="left-panel p-5 panelDetail col-lg-6 d-flex align-items-center gap-3 flex-column justify-content-center">
       <h1>Sign up</h1>
-            <p> Signup using your details and login to the app for free</p>
-            <span>
+      <p> Signup using your details and login to the app for free</p>
+      <span>
       <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Instructions for Form Fields
       </a>
-
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -70,7 +69,7 @@
                 <span *ngIf="signUpForm.get('lastName').hasError('pattern') && signUpForm.get('lastName').dirty" class="errorMessage">Invalid Last Name</span>
                 <ng-template #showLastNameMessage>Last Name<sup>*</sup></ng-template></label>
             </div>
-        </div>
+          </div>
         <div>
           <div class="form-floating fullWidth">
             <input type="number" class="form-control" id="contactNumber" placeholder="contactNumber" formControlName ='contactNumber'>

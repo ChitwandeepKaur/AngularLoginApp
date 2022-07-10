@@ -36,11 +36,11 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  togglePassword() {
+  togglePassword(): void {
     this.hide = !this.hide
   }
 
-  loginUser() {
+  loginUser(): void {
     this.utilService.startService()
     const verifyUser: { userId: string; userPassword: string } = this.loginForm.value
     verifyUser.userPassword = md5(verifyUser.userPassword)

@@ -45,6 +45,8 @@ export class MainService {
       this.userObject = JSON.parse(atob((localStorage.getItem(username + '_data'))))
         for(const userProperty in this.userObject)
         this.userInfo[userProperty] = this.userObject[userProperty]
+
+        this.initialUserName = this.userInfo.userId;
     }
     else return undefined
   }

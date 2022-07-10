@@ -42,15 +42,15 @@ export class SignupComponent implements OnInit {
       validator: this.CustomValidatorsService.passwordValidation
     })
   }
-  togglePassword() {
+  togglePassword(): void {
     this.hidePassword = !this.hidePassword
   }
 
-  toggleConfirm() {
+  toggleConfirm(): void {
     this.hideConfirm  = !this.hideConfirm
   }
 
-  signUpUser() {
+  signUpUser(): void {
     let userDetails   = this.signUpForm.value
     const userId      = userDetails.userId,
           userEmail   = userDetails.userEmail

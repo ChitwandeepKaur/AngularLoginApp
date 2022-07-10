@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   userData = this.mainService.userInfo
 
-  logoutUser() {
+  logoutUser(): void {
     this.router.navigate(['/login'])
     this.cookieService.deleteCookie()
     this.notificationService.success('Log Out Successful','Message')
